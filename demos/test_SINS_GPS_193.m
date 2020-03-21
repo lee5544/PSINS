@@ -14,7 +14,7 @@ trj = trjfile('trj10ms.mat');
 %% init
 imuerr = imuerrset(0.03, 100, 0.001, 10);
 imu = imuadderr(trj.imu, imuerr);
-davp0 = avpseterr([30;-30;30], [0.1;0.1;0.1], [1;1;3]);
+davp0 = avpseterr([30;-30;30], [0.1;0.1;0.1], [0.1;0.1;0.1]);
 lever = [1; 2; 3]; dT = 0.1;
 gps = gpssimu(trj.avp, davp0(4:6), davp0(7:9), 1, lever);
 imugpssyn(imu(:,7), gps(:,end));

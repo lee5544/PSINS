@@ -11,19 +11,19 @@ avp0 = avpset([0;0;0], 0, glv.pos0); % init avp
 % trajectory segment setting
 xxx = [];
 seg = trjsegment(xxx, 'init',         0);
-seg = trjsegment(seg, 'uniform',      100);
+seg = trjsegment(seg, 'uniform',      10);
 seg = trjsegment(seg, 'accelerate',   10, xxx, 1);
-seg = trjsegment(seg, 'uniform',      100);
-seg = trjsegment(seg, 'coturnleft',   45, 2, xxx, 4);
-seg = trjsegment(seg, 'uniform',      100);
+seg = trjsegment(seg, 'uniform',      2);
+seg = trjsegment(seg, 'coturnleft',   15, 2, xxx, 4);
+seg = trjsegment(seg, 'uniform',      0);
 seg = trjsegment(seg, 'coturnright',  10*5, 9, xxx, 4);
-seg = trjsegment(seg, 'uniform',      100);
-seg = trjsegment(seg, 'climb',        10, 2, xxx, 50);
-seg = trjsegment(seg, 'uniform',      100);
-seg = trjsegment(seg, 'descent',      10, 2, xxx, 50);
-seg = trjsegment(seg, 'uniform',      100);
-seg = trjsegment(seg, 'deaccelerate', 5,  xxx, 2);
-seg = trjsegment(seg, 'uniform',      100);
+%seg = trjsegment(seg, 'uniform',      10);
+%seg = trjsegment(seg, 'climb',        10, 2, xxx, 50);
+%seg = trjsegment(seg, 'uniform',      10);
+%seg = trjsegment(seg, 'descent',      10, 2, xxx, 50);
+%seg = trjsegment(seg, 'uniform',      10);
+%seg = trjsegment(seg, 'deaccelerate', 5,  xxx, 2);
+%seg = trjsegment(seg, 'uniform',      10);
 % generate, save & plot
 trj = trjsimu(avp0, seg.wat, ts, 1);
 trjfile('trj10ms.mat', trj);
